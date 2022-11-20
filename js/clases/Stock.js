@@ -65,14 +65,15 @@ class Stock{
 
 
 
-
+//mostrar productos en la pagina
     cargarStock(stockArr){
 
         const stock_div = document.querySelector("#productos");
         stock_div.innerHTML= "";
 
         if (stockArr.length===0){
-            this.mostrarToast ("No hay productos en stock",1500,"bottom");
+            this.mostrarHeader("No se encontraron resultados para esa busqueda")
+
         }
         else{
 
@@ -112,7 +113,7 @@ class Stock{
 
 
 
-    
+//agregar producto al carrito
     agregar(infoProducto){
 
         const existent = this.carrito.some(producto => producto.id===infoProducto.id);
@@ -145,7 +146,7 @@ class Stock{
     }
 
 
-
+//eliminar producto del carrito
     eliminarSeleccion(id){
         
         this.carrito = this.carrito.filter(producto=> producto.id !=id);
@@ -169,6 +170,7 @@ class Stock{
 
     
     
+   //aumentar contador de productos del carrido 
     prodCounterup() { 
 
         let contador = 0;
@@ -179,7 +181,8 @@ class Stock{
 
         return contador;
     }
-
+   
+    //disminuir contador de productos del carrido 
     prodCounterdown(){
         let contador = 0;
         this.carrito.forEach((producto)=>{
@@ -189,6 +192,7 @@ class Stock{
         return contador;
     }
     
+//refrescar carrito    
     actualizarCarrito(){
 
         this.actualizarContador();
@@ -197,7 +201,7 @@ class Stock{
     }
 
 
-
+//refrescar contador de productos del carrito
     actualizarContador(){
 
         let cantProd = this.prodCounterup();
@@ -213,7 +217,7 @@ class Stock{
     }
 
 
-
+//mostrar carrito en la pagina
     displayCarrito(carrito){
 
 
@@ -277,9 +281,9 @@ infoCarrito.appendChild(row);
 
 
 
-
+//guardar carrito en local storage
     guardarCompra(){
-        localStorage.clear();
+        //localStorage.clear();
         localStorage.setItem("carrito", JSON.stringify(this.carrito));
     }
 
@@ -291,7 +295,7 @@ infoCarrito.appendChild(row);
 
 
 
-
+//ordenar productos por precio
     ordenarMenor(){
 
         
