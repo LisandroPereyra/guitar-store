@@ -7,17 +7,18 @@
     <title></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
 </head>
 <body>
 
 
-    <header class="d-flex align-items-center justify-content-start border-bottom bg-white fixed-top">
+    <header class="d-flex align-items-center  border-bottom bg-white fixed-top">
 
-        
+
         <div class="marca">
+            <img class="logoguitarra" src="https://cdn-icons-png.flaticon.com/512/27/27205.png" alt="">
             <a class="navbar-brand" href="#" >
               Jojo Guitar Store
         
@@ -63,26 +64,26 @@
 
     <div class="main">
 
-        <div class="container mt-3 d-flex gap-3">
+        <div  class="container mt-3 d-flex gap-3">
 
 
-            <div class="col-9">
+            <div  class="col-9">
 
                
-                <div class="col-12 h60 border bg-white rounded d-flex align-items-center p-3" id="headerProductos">     
+                <div  class="col-12 h60 border bg-white rounded d-flex align-items-center p-3" id="headerProductos">     
                     Productos destacados
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Ordenar
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" id="destacado" >Destacados</a></li>
-                          <li><a class="dropdown-item" id="menor" >Menor precio</a></li>
-                          <li><a class="dropdown-item" id="mayor" >Mayor precio</a></li>
-                        </ul>
-                      </div>
+
                 </div>                
-                
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Ordenar
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" id="destacado" >Destacados</a></li>
+                      <li><a class="dropdown-item" id="menor" >Menor precio</a></li>
+                      <li><a class="dropdown-item" id="mayor" >Mayor precio</a></li>
+                    </ul>
+                  </div>
                 <div id="productos">
 
                 </div>            
@@ -127,8 +128,8 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script src="Guitarra.js"></script>
-    <script src="Stock.js"></script>
-    <script src="main.js"></script>
+    <script src="js/clases/Guitarra.js"></script>
+    <script src="js/clases/Stock.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

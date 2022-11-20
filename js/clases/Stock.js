@@ -38,67 +38,21 @@ class Stock{
 
 }
 
-//detalles
-	/*detalleProducto(id){
-		
-        const filtroDato = stock.filter(item => item.id == id)
-		let result = ""
-		filtroDato.forEach(producto => {
-			result += `
-			<article class="detalle-grid">
-				<img src=${producto.img} alt="${producto.marca}" class="img-fluid">
-				<div class="detalles-content">
-					<h3>${producto.marca}</h3>
-					<div class="rating">
-						<span>
-							<i class="bx bxs-star"></i>
-						</span>
-						<span>
-							<i class="bx bxs-star"></i>
-						</span>
-						<span>
-							<i class="bx bxs-star"></i>
-						</span>
-						<span>
-							<i class="bx bxs-star"></i>
-						</span>
-						<span>
-							<i class="bx bx-star"></i>
-						</span>
-					</div>
-						<p class="price"><b>Precio: </b> $${producto.precio}</p>
-						<p class="description">
-							<b>Descripcion: </b> <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quae ad ex sint expedita perspiciatis odit eligendi! Et quia ex aperiam dolorum sunt omnis maiores. Repudiandae delectus iste exercitationem vel?</span>
-						</p>
-						<p class="description">
-							<span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptates consequuntur in assumenda odit hic, aut cupiditate dolorem aspernatur! Quibusdam iusto magnam vero maxime quisquam voluptatibus minima aliquam molestias, iure ratione commodi, reiciendis quasi.</span>
-						</p>
 
-						<div class="bottom">
-							<div class="btn__group">
-								<button class="btn addToCart" data-id=${producto.id}>Añadir carrito</button>
-							</div>
-						</div>
-				</div>
-			</article>
-			`
-		});
-		detalles.innerHTML = result;
-	}
-
-*/
 
 
 
     //metodos de busqueda
     buscar( q ) { 
     let search = this.stockProductos.filter( producto => producto.marca.toLowerCase().includes( q.toLowerCase() ) || producto.modelo.toLowerCase().includes( q.toLowerCase() ));      
-    //this.cargarStock( search ); 
+  
     console.log(search)
+        
         return search;
 
                   
     } 
+
 
     mostrarHeader( msg ) { 
         const headerProductos = document.querySelector('#headerProductos');
@@ -118,7 +72,7 @@ class Stock{
         stock_div.innerHTML= "";
 
         if (stockArr.length===0){
-            
+            this.mostrarToast ("No hay productos en stock",1500,"bottom");
         }
         else{
 
@@ -141,7 +95,7 @@ class Stock{
                         <div class="d-flex align-items-center justify-content-center flex-column w-20 h-150">
                             <p class="precio">$${producto.precio}</p>
                             <a href="javascript:agregarProducto(${producto.id})" class="btn btn-primary">Agregar al carrito</a>
-                            <a href="card.html?id=${producto.id}" class="btn view">Vista</a>
+
                         </div>`; 
 
                             stock_div.appendChild( prod );
@@ -380,7 +334,9 @@ infoCarrito.appendChild(row);
     }
 
     ordenarDestacado(){
-        this.cargarStock();
+       
+
+                this.cargarStock(this.productosDestacados);
     }
 
     getStocklist(){

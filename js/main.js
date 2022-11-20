@@ -1,40 +1,31 @@
 
 let stock=[];
-
 let gestor;
 
 
-/*
-const dataStock = "/data.json";
 
-fetch(dataStock)
-.then(respuesta=> respuesta.json())
-.then((datos)=> {
-    console.log(datos)
-    datos.forEach(producto => {
-        
-    });
-})
-*/
+//buscanr los productos en local storage
 async function getData(){
-    const dataStock = "/data.json";
+    const dataStock = "JSON/data.json";
     let resp = await fetch(dataStock).then(respuesta=> respuesta.json())
     return resp;
 }
    
 
-
 const clave_carrito = "carrito";
 
+
+//inicializar stock 
 document.addEventListener("DOMContentLoaded",async()=>
 {
     carrito = JSON.parse( localStorage.getItem(clave_carrito) ) || [];
     gestor = new Stock(await getData(),carrito);
     gestor.getStocklist();
-    // gestor.setup();
+    
 }
 )
 
+//agregar producto al carrito
 function agregarProducto( id ) {
     
     const prod = document.querySelector('#row_'+id);
@@ -49,8 +40,8 @@ function agregarProducto( id ) {
     gestor.agregar( producto );
 }
 
+//eliminar productos del carrito
 function eliminarProducto(id){
-      //gestor.eliminarSeleccion(id);
       gestor.restarCantidad(id);
       localStorage.setItem("carrito", JSON.stringify(carrito));
 
@@ -58,7 +49,7 @@ function eliminarProducto(id){
 
 
 
-
+//escucha el input y busca productos relacionados con lo que ingresa el usuario
 document.querySelector('#buscar').addEventListener('keyup', () => {
 
     let q = document.querySelector('#buscar').value;
@@ -71,13 +62,17 @@ document.querySelector('#buscar').addEventListener('keyup', () => {
         let busqueda =  gestor.buscar( q );
         gestor.cargarStock(busqueda)       
 
-    } else if ( q.length === 0 ) {
+    } else if ( q.length == 0 ) {
         
-        //Muestro todo sino hay nada el buscador   
+          
         
-        gestor.mostrarHeader('Todos los productos en stock');
-        gestor.cargarStock();//areglar
-    } 
+        gestor.mostrarHeader(`Todos los productos en stock`);
+        gestor.ordenarDestacado()
+    }
+
+    else{
+        gestor.mostrarHeader(`No se encontraron productos para: ${q}`); 
+    }
 
 })
 
@@ -85,6 +80,7 @@ document.querySelector('#buscar').addEventListener('keyup', () => {
 let ordenMenor = document.getElementById("menor");
      ordenMenor.addEventListener('click', ()=>{
       let menor = gestor.ordenarMenor()
+      gestor.mostrarHeader(`Menor precio`);
       gestor.cargarStock(menor);
     })
  
@@ -92,13 +88,15 @@ let ordenMenor = document.getElementById("menor");
 let ordenMayor = document.getElementById("mayor");
     ordenMayor.addEventListener('click', ()=>{
       let mayor =  gestor.ordenarMayor()
+      gestor.mostrarHeader(`Mayor precio`);
       gestor.cargarStock(mayor);
    })
   
    let ordenDestacado = document.getElementById("destacado");
    ordenDestacado.addEventListener('click', ()=>{
-     let destacado =  gestor.ordenarDestacado()
-     gestor.cargarStock(destacado);
+    gestor.mostrarHeader(`Productos destacados`);
+    gestor.ordenarDestacado();
+     
   })   
 
-   let detalleProducto = document.getElementById("mayor");
+   
