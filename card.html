@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="d-flex align-items-center justify-content-start border-bottom bg-white fixed-top">
+
+        <div class="marca">
+            <a class="navbar-brand" href="#" >
+              Jojo Guitar Store
+        
+            </a>
+          </div>
+
+
+      <div class="busqueda">
+        <form class="d-flex" role="search">
+          <input  class="form-control me-2" id="buscar" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark " type="submit">Search</button>
+        </form>
+      </div>
+
+
+                <a   
+                    id="carrito"
+                    class="cart position-relative d-inline-flex " 
+                    aria-label="View your shopping cart"
+                    data-bs-toggle="offcanvas" 
+                    data-bs-target="#offcanvasRight" 
+                    aria-controls="offcanvasRight">
+
+                    <i class="fa-solid fa-cart-shopping position-relative" id="iconoCarrito">
+                        <span class="position-absolute 
+                                     top-0 
+                                     start-100 
+                                     translate-middle 
+                                     badge 
+                                     rounded-pill 
+                                     bg-danger"
+                                     
+                                     id="badgeCarrito">
+                                0
+                        </span>
+                    </i>
+
+                </a> 
+
+        
+
+    </header> 
+    
+<div id="detalle">
+
+</div>
+
+
+
+    <script src="Guitarra.js"></script>
+    <script src="Stock.js"></script>
+    <script src="main.js"></script>
+    
+</body>
+</html>

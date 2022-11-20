@@ -1,0 +1,67 @@
+[
+
+    {
+        "id":1,
+        "marca":"Gibson",
+        "modelo":"LesPaul",
+        "estado":"Usado",
+        "precio":1000,
+        "img":"Lespaul.jpg",
+        "destacado": 0
+    },
+
+    {
+        "id":2,
+        "marca":"Gibson",
+        "modelo":"SG",
+        "estado":"Nuevo",
+        "precio":800,
+        "img":"SG.jpg",
+        "destacado":0
+
+    },
+
+    {
+        "id":3,
+        "marca":"Fender",
+        "modelo":"Stratocaster",
+        "estado":"Nuevo",
+        "precio":900,
+        "img":"strato.jpg",
+        "destacado":1
+
+    },
+
+    {
+        "id":4,
+        "marca":"Fender",
+        "modelo":"Telecaster",
+        "estado":"Usado",
+        "precio":600,
+        "img":"tele.jpg",
+        "destacado":1
+
+    },
+
+    {
+        "id":5,
+        "marca":"Ibanez",
+        "modelo":"Rg 370",
+        "estado":"Nuevo",
+        "precio":500,
+        "img":"rg370.jpg",
+        "destacado":1
+
+    },
+
+    {
+        "id":6,
+        "marca":"Yamaha",
+        "modelo":"Pacifica",
+        "estado":"Nuevo",
+        "precio":300,
+        "img":"pacifica.jpg",
+        "destacado":1
+
+    }
+]
