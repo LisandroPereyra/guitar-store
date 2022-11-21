@@ -7,6 +7,12 @@
 /*.headerProductos{
     
 }*/
+
+#finalizar{
+    bottom: auto
+
+}
+
 .dropdown{
     left: 700px;
     top: 7px;

@@ -4,10 +4,10 @@ class Stock{
     productosDestacados = [];
     carrito = [];
    
-    constructor(productos,carrito){
+    constructor(productos,carrit){
 
             this.stockProductos =  productos
-            carrito=this.carrito   
+            carrito = carrit 
 
                 this.productosDestacados = this.stockProductos.filter( prod => prod.destacado == 1 );
 
@@ -22,7 +22,9 @@ class Stock{
 
     }    
 
-
+ getCartlog(){
+    console.log(carrito)
+ }
 
 
 //alert de toastify
@@ -116,11 +118,11 @@ class Stock{
 //agregar producto al carrito
     agregar(infoProducto){
 
-        const existent = this.carrito.some(producto => producto.id===infoProducto.id);
+        const existent = carrito.some(producto => producto.id===infoProducto.id);
 
         if(existent){
 
-            const articulos = this.carrito.map(producto=> {
+            const articulos = carrito.map(producto=> {
 
                 if(producto.id === infoProducto.id)
                 {
@@ -133,33 +135,33 @@ class Stock{
 
                 
             })
-                this.carrito = articulos
+                carrito = articulos
                 this.mostrarToast ("Cantidad del producto actualizada",1500,"bottom");
         }
         else{
-            this.carrito.push(infoProducto);
+            carrito.push(infoProducto);
             this.mostrarToast ("Añadido al carrito",1500,"bottom");
 
         }
        this.actualizarCarrito();
-       console.log(this.carrito)
+       //console.log(this.carrito)
     }
 
 
 //eliminar producto del carrito
     eliminarSeleccion(id){
         
-        this.carrito = this.carrito.filter(producto=> producto.id !=id);
-        this.displayCarrito(this.carrito);
+        carrito = carrito.filter(producto=> producto.id !=id);
+        this.displayCarrito(carrito);
         this.mostrarToast ("Producto eliminado",1500,"bottom");
     }
 
     restarCantidad(id){
-        let producto = this.carrito.find(producto=>producto.id==id)
+        let producto = carrito.find(producto=>producto.id==id)
        if( producto.cantidad > 1) {
         producto.cantidad-=1;
         //this.cantidad--;
-        this.displayCarrito(this.carrito);}
+        this.displayCarrito();}
         else{
             this.eliminarSeleccion(id);
         }
@@ -174,7 +176,7 @@ class Stock{
     prodCounterup() { 
 
         let contador = 0;
-        this.carrito.forEach(( producto ) => {
+        carrito.forEach(( producto ) => {
 
             contador = contador + parseInt(producto.cantidad);
         })
@@ -185,7 +187,7 @@ class Stock{
     //disminuir contador de productos del carrido 
     prodCounterdown(){
         let contador = 0;
-        this.carrito.forEach((producto)=>{
+        carrito.forEach((producto)=>{
 
             contador= parseInt(producto.cantidad) - contador;
         })
@@ -196,8 +198,8 @@ class Stock{
     actualizarCarrito(){
 
         this.actualizarContador();
-        this.displayCarrito(this.carrito);
-        this.guardarCompra();
+        this.displayCarrito(carrito);
+        this.guardarCompra(carrito);
     }
 
 
@@ -218,7 +220,7 @@ class Stock{
 
 
 //mostrar carrito en la pagina
-    displayCarrito(carrito){
+    displayCarrito(){
 
 
 
@@ -282,9 +284,9 @@ infoCarrito.appendChild(row);
 
 
 //guardar carrito en local storage
-    guardarCompra(){
-        //localStorage.clear();
-        localStorage.setItem("carrito", JSON.stringify(this.carrito));
+    guardarCompra(carrito){
+        
+        localStorage.setItem(clave_carrito, JSON.stringify(carrito));
     }
 
 
@@ -347,5 +349,40 @@ infoCarrito.appendChild(row);
         console.log (this.stockProductos)
     }
 
+//funcion del boton finalizar compra
+    finalizarCompra(){
+        let compra = carrito.length;
+        if (compra>0){
+            this.mostrarSweet();
 
+        }
+        else{
+
+        }
+    }
+
+    
+    mostrarSweet(){
+    Swal.fire({
+        title: '¿Desea finalizar la compra?',
+        text: "Terminar pedido",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Finalizar compra'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Finalizado',
+            'compra exitosa',
+            'success'
+          )
+          carrito=[];
+          localStorage.clear(clave_carrito);
+          this.actualizarCarrito();
+          
+        }
+      })
+    }
 }

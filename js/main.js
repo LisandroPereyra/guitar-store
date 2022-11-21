@@ -1,7 +1,7 @@
 
-let stock=[];
+//let stock=[];
 let gestor;
-
+let carrito=[]
 
 
 //buscanr los productos en local storage
@@ -10,7 +10,13 @@ async function getData(){
     let resp = await fetch(dataStock).then(respuesta=> respuesta.json())
     return resp;
 }
-   
+
+async function getCart(){
+    
+    let respCarrito = JSON.parse( localStorage.getItem(clave_carrito) ) || [];
+    return respCarrito;
+
+}
 
 const clave_carrito = "carrito";
 
@@ -18,9 +24,10 @@ const clave_carrito = "carrito";
 //inicializar stock 
 document.addEventListener("DOMContentLoaded",async()=>
 {
-    carrito = JSON.parse( localStorage.getItem(clave_carrito) ) || [];
-    gestor = new Stock(await getData(),carrito);
+    
+    gestor = new Stock(await getData(), await getCart());
     gestor.getStocklist();
+    gestor.getCartlog();
     
 }
 )
@@ -99,4 +106,12 @@ let ordenMayor = document.getElementById("mayor");
      
   })   
 
+  let finalizarPedido = document.getElementById("finalizar");
+  finalizarPedido.addEventListener('click', ()=>{
+   gestor.finalizarCompra();
    
+   
+
+   
+    
+ })   
