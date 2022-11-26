@@ -63,5 +63,126 @@
         "img":"pacifica.jpg",
         "destacado":1
 
+    },
+    
+    {
+        "id":7,
+        "marca":"Ibanez",
+        "modelo":"121dx",
+        "estado":"Usado",
+        "precio":1200,
+        "img":"121.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":9,
+        "marca":"Guitarra Acustica",
+        "modelo":"",
+        "estado":"Nuevo",
+        "precio":400,
+        "img":"acustica.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":9,
+        "marca":"Electro Acustica",
+        "modelo":"",
+        "estado":"Nuevo",
+        "precio":500,
+        "img":"electroac.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":10,
+        "marca":"Guitarra Criolla",
+        "modelo":"",
+        "estado":"Nuevo",
+        "precio":380,
+        "img":"criolla.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":11,
+        "marca":"Epiphone",
+        "modelo":"Les Paul",
+        "estado":"Nuevo",
+        "precio":800,
+        "img":"epiphone.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":12,
+        "marca":"Gibson",
+        "modelo":"Explorer",
+        "estado":"Usado",
+        "precio":1750,
+        "img":"explorer.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":13,
+        "marca":"Fender",
+        "modelo":"Jazzmaster",
+        "estado":"Nuevo",
+        "precio":840,
+        "img":"jazz.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":14,
+        "marca":"Ibanez",
+        "modelo":"JEM",
+        "estado":"Nuevo",
+        "precio":2500,
+        "img":"jem.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":15,
+        "marca":"-",
+        "modelo":"Red Special",
+        "estado":"Usado",
+        "precio":3333,
+        "img":"red.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":16,
+        "marca":"Warlock",
+        "modelo":"",
+        "estado":"Nuevo",
+        "precio":1750,
+        "img":"warlock.png",
+        "destacado":1
+    },
+
+    {
+        "id":17,
+        "marca":"Yamaha",
+        "modelo":"Revstar",
+        "estado":"Nuevo",
+        "precio":1100,
+        "img":"revstar.jpg",
+        "destacado":1
+    },
+
+    {
+        "id":18,
+        "marca":"Gibson",
+        "modelo":"335",
+        "estado":"Nuevo",
+        "precio":1400,
+        "img":"335.jpg",
+        "destacado":1
     }
+
 ]
